@@ -4,9 +4,7 @@ About 5 minutes. Needs Android 8.0 or newer.
 
 ## 1. Download the APK on your phone
 
-The repository is **private**, so you need to be signed in to GitHub on your phone.
-
-1. On your phone, open the browser and sign in at **github.com** (or use the GitHub app).
+1. On your phone, open the browser.
 2. Go to **https://github.com/bernaprioste1704/pocket-lock/releases/latest**
 3. Under **Assets**, tap **`PocketLock-vX.Y.Z.apk`** to download it.
    - If Chrome warns *"This type of file can harm your device"*, tap **Download anyway**.
