@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Pocket Lock</string>
+    <string name="tile_label">Pocket Lock</string>
+    <string name="tile_subtitle_ready">Tap to blank screen</string>
+    <string name="tile_subtitle_setup">Setup needed</string>
+
+    <string name="accessibility_summary">Blacks out the screen while your video keeps playing</string>
+    <string name="accessibility_description">Pocket Lock covers the screen with a black, touch-blocking layer so you can keep listening to a video with the screen dark. It needs accessibility access only to draw that layer above other apps and to detect the Volume Up + Volume Down unlock shortcut. It does not read your screen content or collect any data.</string>
+
+    <string name="overlay_hint">Hold with two fingers to unlock\nor press Volume Up + Volume Down together</string>
+    <string name="overlay_keep_holding">Keep holding…</string>
+
+    <string name="headline">Listen with the screen off</string>
+    <string name="intro">Pocket Lock covers your screen with black and blocks touches, while the video app underneath keeps playing.</string>
+    <string name="status_ready">✅ Pocket Lock is enabled</string>
+    <string name="status_not_ready">⚠️ Not enabled yet. Turn it on in Accessibility settings.</string>
+    <string name="button_enable">Enable Pocket Lock</string>
+    <string name="button_open_accessibility">Accessibility settings</string>
+    <string name="button_add_tile">Add Quick Settings tile</string>
+    <string name="button_try">Try it now</string>
+
+    <string name="how_to_lock_title">To blank the screen</string>
+    <string name="how_to_lock">• Swipe down twice and tap the Pocket Lock tile\n• Or tap the floating accessibility button (enable “Pocket Lock shortcut” in Accessibility settings)</string>
+    <string name="how_to_unlock_title">To unlock</string>
+    <string name="how_to_unlock">• Hold two fingers on the screen for 1.5 seconds\n• Or press Volume Up and Volume Down at the same time\n• Double-tap the black screen to see a reminder\n\nSingle volume presses still change the volume. Pressing the power button really locks the phone (most video apps will pause).</string>
+
+    <string name="enable_first">Enable Pocket Lock in Accessibility settings first</string>
+    <string name="add_tile_manually">Swipe down twice, tap the pencil (edit) icon, and drag the Pocket Lock tile into your tiles</string>
+    <string name="tile_already_added">The tile is already in Quick Settings</string>
+</resources>

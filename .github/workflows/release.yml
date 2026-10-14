@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build signed APK
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          POCKETLOCK_KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          POCKETLOCK_KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          POCKETLOCK_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          echo "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+          export POCKETLOCK_KEYSTORE="$RUNNER_TEMP/release.jks"
+          export VERSION_NAME="${GITHUB_REF_NAME#v}"
+          export VERSION_CODE="${{ github.run_number }}"
+          ./gradlew testReleaseUnitTest assembleRelease --stacktrace
+          cp app/build/outputs/apk/release/app-release.apk "PocketLock-${GITHUB_REF_NAME}.apk"
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" "PocketLock-${GITHUB_REF_NAME}.apk" \
+            --title "Pocket Lock ${GITHUB_REF_NAME}" \
+            --notes "Download **PocketLock-${GITHUB_REF_NAME}.apk** on your Android phone and follow [INSTALL.md](https://github.com/${GITHUB_REPOSITORY}/blob/main/INSTALL.md)."
